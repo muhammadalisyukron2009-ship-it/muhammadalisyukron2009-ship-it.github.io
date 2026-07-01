@@ -63,3 +63,30 @@
 
 </body>
 </html>
+<!-- Load library Supabase agar website bisa terhubung ke database -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // 1. Konfigurasi koneksi ke database Supabase Ali
+  const SUPABASE_URL = "https://sioziixsyvmvrctpffil.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpb3ppaXhzeXZtdnJjdHBmZmlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4MjM1NjMsImV4cCI6MjA5ODM5OTU2M30.0MauC0OkEppnK8CXEqN-fWAVSzcS79q6UBpC1gI-aww";
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // 2. Fungsi otomatis untuk tes kirim data saat halaman web dibuka
+  async function kirimPesanTest() {
+    const { data, error } = await supabase
+      .from('pesan')
+      .insert([
+        { nama: 'Ali Fullstack', isi_pesan: 'Gokil, koneksi Full-Stack ke Supabase berhasil!' }
+      ]);
+    
+    if (error) {
+      console.log('Waduh error, bro:', error);
+    } else {
+      console.log('Mantap! Data berhasil masuk ke database.');
+    }
+  }
+
+  // Jalankan fungsi test ini secara otomatis
+  kirimPesanTest();
+</script>
