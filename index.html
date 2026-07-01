@@ -86,7 +86,7 @@
         // 2. Konfigurasi koneksi ke database Supabase Ali
         const SUPABASE_URL = "https://sioziixsyvmvrctpffil.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpb3ppaXhzeXZtdnJjdHBmZmlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4MjM1NjMsImV4cCI6MjA5ODM5OTU2M30.0MauC0OkEppnK8CXEqN-fWAVSzcS79q6UBpC1gI-aww";
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // 3. Fungsi otomatis untuk tes kirim data saat halaman web dibuka
         async function kirimPesanTest() {
